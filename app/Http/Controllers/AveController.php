@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ave;
+use Session;
 
 class AveController extends Controller
 {
@@ -38,7 +39,18 @@ class AveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'ave' => 'required',
+            'cantidad' => 'required',
+            'lugar_referencia' => 'required',
+            'responsable' => 'required'
+        ]);
+
+        Ave::create($request->all());
+
+        Session::flash('message', 'Avistamiento registrado con éxito');
+
+        return redirect()->route('aves.index');
     }
 
     /**

@@ -3,7 +3,7 @@
 @section('content');
 
 <h1 class="text-center">REGISTRAR AVISTAMIENTO</h1>
-
+<hr>
 <div class="container">
     <form action="{{ route('aves.store') }}" method="POST">
         @csrf
@@ -35,7 +35,7 @@
                 <div class="col-md-12 text-center">
                     <button type="submit" class="btn btn-primary">Registrar</button>
                 </div>
-            </div>   
+            </div> 
     </form>
 </div>
 
