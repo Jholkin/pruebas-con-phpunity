@@ -15,7 +15,7 @@ class AveController extends Controller
     public function index()
     {
         //
-        $aves = Ave::all();
+        $aves = Ave::orderBy('id','DESC')->paginate(5);
         return view('Ave.index', compact('aves'));
     }
 
