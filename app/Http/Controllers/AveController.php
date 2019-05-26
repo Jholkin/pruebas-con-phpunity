@@ -62,7 +62,7 @@ class AveController extends Controller
     public function show(Ave $ave)
     {
         //
-        return view('ave.show', compact('ave'));
+        return view('Ave.show', compact('ave'));
     }
 
     /**

@@ -5,12 +5,13 @@
 <div class="container">
     <div class="card" style="width: 18rem;">
     <div class="card-header">
-        {{$ave->ave}}
+        <h3>{{$ave->ave}}</h3>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
+        <li class="list-group-item">{{$ave->cantidad}}</li>
+        <li class="list-group-item">{{$ave->lugar_referencia}}</li>
+        <li class="list-group-item">{{$ave->responsable}}</li>
+        <li class="list-group-item">{{$ave->created_at}}</li>
     </ul>
     </div>
 </div>
