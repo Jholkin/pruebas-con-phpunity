@@ -12,5 +12,4 @@
 */
 
 Route::get('/', 'AveController@index');
-Route::get('/home', 'AveController@index');
-Route::resource('aves', 'AveController');
+Route::resource('ave', 'AveController');

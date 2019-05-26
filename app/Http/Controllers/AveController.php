@@ -50,7 +50,7 @@ class AveController extends Controller
 
         Session::flash('message', 'Avistamiento registrado con éxito');
 
-        return redirect()->route('aves.index');
+        return redirect()->route('ave.index');
     }
 
     /**
@@ -59,9 +59,10 @@ class AveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ave $ave)
     {
         //
+        return view('ave.show', compact('ave'));
     }
 
     /**
@@ -70,9 +71,10 @@ class AveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ave $ave)
     {
         //
+        return view('Ave.edit', compact('ave'));
     }
 
     /**
@@ -82,9 +84,20 @@ class AveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Ave $ave)
     {
         //
+        $request->validate([
+            'ave' => 'required',
+            'cantidad' => 'required',
+            'lugar_referencia' => 'required',
+            'responsable' => 'required'
+        ]);
+
+        $ave->update($request->all());
+        Session::flash('message', 'Avistamiento actualizado con éxito');
+
+        return redirect()->route('ave.index');
     }
 
     /**
@@ -93,8 +106,12 @@ class AveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ave $ave)
     {
         //
+        $ave->delete();
+        Session::flash('message', 'Avistamiento eliminado con éxito');
+
+        return redirect()->route('ave.index');
     }
 }
