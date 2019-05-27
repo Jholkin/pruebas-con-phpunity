@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Ave;
 
 class AveTest extends TestCase
 {
@@ -40,5 +41,22 @@ class AveTest extends TestCase
         ->assertSee('DETALLE DE AVISTAMIENTO');
     }
 
+    public function testCreateBird()
+    {
+        //arrange
+        $ave = factory(Ave::class)->create([
+            'ave' => 'gallinazo',
+            'cantidad' => '5',
+            'lugar_referencia' => 'unas',
+            'responsable' => 'curitima'
+        ]);
+
+        //action
+        $response = $this->get('/ave');
+
+        //assert
+        $response->assertSee($ave->ave);
+        $response->assertSee('unas');
+    }
     
 }
