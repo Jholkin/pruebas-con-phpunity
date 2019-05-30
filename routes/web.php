@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/', 'AveController@index');
+
 Route::resource('ave', 'AveController');

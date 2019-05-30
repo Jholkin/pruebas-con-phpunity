@@ -43,14 +43,12 @@ class AveController extends Controller
             'ave' => 'required',
             'cantidad' => 'required',
             'lugar_referencia' => 'required',
-            'responsable' => 'required'
+            'responsable' => 'required' 
         ]);
 
         Ave::create($request->all());
-
-        Session::flash('message', 'Avistamiento registrado con éxito');
-
         return redirect()->route('ave.index');
+
     }
 
     /**

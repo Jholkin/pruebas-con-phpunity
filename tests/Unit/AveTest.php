@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Ave;
 
 class AveTest extends TestCase
 {
@@ -13,9 +14,21 @@ class AveTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testSaveBird()
     {
-        $this->assertTrue(true);
+        $ave = new Ave();
+        $ave->ave = 'gaviota';
+        $ave->cantidad = '5';
+        $ave->lugar_referencia = 'no se';
+        $ave->responsable = 'unas';
+        //$ave->save();
+
+        if ($ave->save()) {
+            $this->assertTrue(true);
+            //dd($ave);
+            //$this->assertSee(200);
+        }
+
     }
     
 
